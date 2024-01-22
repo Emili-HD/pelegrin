@@ -1,0 +1,24 @@
+@mixin grid($rows: null, $columns: null, $gap: null, $row-gap: null, $column-gap: null) {
+    display: grid;
+    gap: $gap;
+    row-gap: $row-gap;
+    column-gap: $column-gap;
+    grid-template-rows: $rows;
+    grid-template-columns: $columns;
+}
+
+@mixin flex($display: column, $justify: center, $align: center, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $display;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+} 
+
+@mixin columns($column: 1) {
+    width: $grid-column * $column;
+}
+
+@mixin rows($row: 1) {
+    height: $grid-row * $row;
+}

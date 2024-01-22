@@ -1,0 +1,42 @@
+.woocommerce-cart {
+    .section:not(.footer-contenedor-info) {
+        @include flex(column, flex-start, flex-start);
+        @include columns(5);
+        padding: $grid-row $grid-column;
+
+        @media (max-width: 767.98px){
+        	@include column-mb();
+            padding-top: 10vw;
+            padding-bottom: 10vw;
+        }
+
+        .entry-header,
+        .entry-content {
+            width: 100%;
+        }
+    }
+}
+
+span.counter {
+    @include flex(column);
+    background-color: $color__corporativo-2;
+    border-radius: 15px;
+    color: white;
+    font-size: .7rem;
+    font-weight: 600;
+    height: 15px;
+    padding: 3px;
+    position: absolute;
+    right: -3px;
+    top: 3px;
+    width: 15px;
+    z-index: 1;
+}
+
+td.actions {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding: 2rem 0;
+    border-top: 1px solid $color__line;
+    border-bottom: 1px solid $color__line;
+}

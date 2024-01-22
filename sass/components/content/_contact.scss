@@ -1,0 +1,116 @@
+#post-33 {
+    display: none;
+}
+
+#contact {
+    grid-auto-rows: 25vh;
+    grid-template-areas: ". . . . ."
+        ". titulo formulario formulario ."
+        ". descripcion formulario formulario ."
+        ". . . . .";
+        row-gap: calc($paddings / 2);
+
+    @media (max-width: 767.98px) {
+        @include flex(column, flex-start, flex-start)
+    }
+
+    h1 {
+        align-self: end;
+        font-size: 3rem;
+        grid-area: titulo;
+        line-height: 1;
+    }
+
+    p {
+        grid-area: descripcion;
+
+        @media (max-width: 767.98px) {
+            @include column-mb();
+        }
+    }
+
+    .formulario {
+        background-color: $color__corporativo-1;
+        grid-area: formulario;
+
+        @media (max-width: 767.98px) {
+            margin: 0 10vw;
+            width: 80vw;
+        }
+
+        .wpcf7.js {
+            height: 100%;
+
+            form {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                height: 100%;
+                justify-content: space-between;
+                padding: $paddings;
+
+                @media (max-width: 767.98px) {
+                    padding: calc($paddings / 2);
+                }
+
+                .input-container {
+                    width: 100%;
+
+                    input[type='text'],
+                    input[type="email"],
+                    input[type="tel"] {
+                        background-color: rgba($color__blanco, 0.3);
+                        border: 0;
+                        border-radius: 0;
+                        color: $color__blanco;
+                        height: 5vh;
+                        outline: 1px solid $color__blanco;
+                        padding: calc($paddings / 4);
+                        width: 100%;
+
+                        &::placeholder {
+                            color: $color__blanco; // Cambia el color del placeholder a rojo
+                        }
+                    }
+
+                    textarea {
+                        background-color: rgba(255, 255, 255, 0.3);
+                        border: 0;
+                        border-radius: 0;
+                        color: $color__blanco;
+                        height: 10vh;
+                        outline: 1px solid $color__blanco;
+                        padding: 0.6rem;
+                        width: 100%;
+
+                        &::placeholder {
+                            color: $color__blanco; // Cambia el color del placeholder a rojo
+                        }
+                    }
+
+
+                }
+
+                input[type='submit'] {
+                    background-color: $color__blanco;
+                    border: 0;
+                    border-radius: 0;
+                    border-radius: 1rem;
+                    font-size: .8rem;
+                    font-weight: 600;
+                    height: auto;
+                    justify-self: end;
+                    letter-spacing: 1px;
+                    outline: 1px solid $color__blanco;
+                    padding: 0.5rem 1.25rem;
+                    width: fit-content;
+                }
+
+                .wpcf7-spinner {
+                    display: none;
+                }
+            }
+        }
+    }
+}

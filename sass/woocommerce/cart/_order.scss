@@ -1,0 +1,94 @@
+.woocommerce-order {
+    @include columns(3);
+    position: relative;
+    margin: auto;
+
+    & > p,
+    & > ul,
+    & > .woocommerce-order-details {
+        padding-bottom: calc($paddings / 2);
+        margin-bottom: calc($paddings / 2);
+        border-bottom: 1px solid $color__line;
+        
+        .woocommerce-table--order-details {
+            @include flex(row, flex-start, flex-start, wrap);
+
+            .woocommerce-table.woocommerce-table--order-details.shop_table.order_details {
+                border-collapse: collapse;
+                width: calc(100% + 1px);
+            }
+            
+            thead {
+                width: 100%;
+                
+                .woocommerce-table__product-name {
+                    width: calc($grid-column - 1.2rem);
+                    border-bottom: 1px solid $color__line;
+                    padding-bottom: calc($paddings / 4);
+                    text-align: left;
+                }
+
+                .woocommerce-table__product-table {
+                    width: calc(($grid-column * 2) - ($paddings / 4));
+                    border-bottom: 1px solid $color__line;
+                    padding-bottom: calc($paddings / 4);
+                    padding-left: calc($paddings / 2);
+                    text-align: left;
+                }
+            }
+
+            tbody {
+                width: calc($grid-column - ($paddings / 2));
+                border-right: 1px solid $color__line;
+                padding: calc($paddings / 4) 0;
+
+                .product-total {
+                    display: none;
+                }
+            }
+
+            tfoot {
+                width: calc(($grid-column * 2) - ($paddings / 2));
+                padding: calc($paddings / 4) calc($paddings / 2);
+
+                tr {
+                    width: 100%;
+                    display: flex;
+
+                    th {
+                        width: calc(50% + 1rem);
+                        text-align: left;
+                    }
+                    td {
+                        width: calc(50% - 1rem);
+                        text-align: left;
+                    }
+                }
+            }
+            
+            .woocommerce-table__product-name.product-name > a {
+                font-weight: 500;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    h2 {
+        margin-bottom: calc($paddings / 2);
+    }
+
+    td.woocommerce-table__product-name.product-name .product-quantity {
+        display: none;
+    }
+
+    ul.wc-item-meta {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li, li p {
+            @include flex(row, flex-start);
+            font-size: 0.9rem;
+        }
+    }
+}

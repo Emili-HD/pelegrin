@@ -1,0 +1,86 @@
+.site {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: auto;
+}
+
+.site-header {
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 1px solid $color__line;
+
+    body:not(.home) & {
+        background: #ffffff80;
+        backdrop-filter: blur(10px);
+    }
+    
+    .home &,
+    &.active {
+        background-color: $color__blanco;
+    }
+
+    @media (max-width: 1024px) {
+        background-color: transparent;
+        position: sticky;
+        top: 0;
+    }
+
+    .site-branding {
+        @include grid($columns: repeat(5, $grid-column));
+        align-items: stretch;
+        gap: .0625rem;
+        @media (max-width: 1024px) {
+            @include grid($columns: repeat(5, 1fr));
+            background-color: $color__blanco;
+            padding: 1rem;
+            width: 100vw;
+        }
+
+        .logo-wrapper {
+            grid-column: 1/2;
+            padding: 1rem $paddings;
+            @include adjust;
+
+            @media (max-width: 1024px) {
+                padding: 0;
+                @include flex(column);
+            }
+        }
+
+        .main-navigation {
+            align-items: center;
+            // background-color: $color__blanco;
+            display: flex;
+            flex-direction: row;
+            grid-column: 2/5;
+            justify-content: flex-end;
+            padding: 1rem $paddings;
+            @include adjust;
+
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+
+        .user__navigation {
+            grid-column: 5/6;
+            padding: 1rem $paddings;
+            @include adjust;
+
+            @media (max-width: 1024px) {
+                padding: 0;
+                grid-column: 2/6;
+            }
+
+        }
+    }
+
+    a {
+        line-height: 1;
+    }
+}

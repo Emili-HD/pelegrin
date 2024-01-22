@@ -1,0 +1,22 @@
+.home #section-3 {
+    .google {
+        &>div {
+            @include flex(column);
+            height: $grid-row;
+            width: $grid-column;
+        }
+    }
+
+    .ti-widget.ti-goog {
+        .ti-widget-container * {
+            color: $color__blanco !important;
+            font-family: $satoshi !important;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .resenas {
+            width: 100%;
+        }
+    }
+}

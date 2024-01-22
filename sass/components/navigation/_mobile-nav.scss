@@ -1,0 +1,59 @@
+.menu-mobile,
+.woocommerce-cart .site-header .section.menu-mobile,
+.woocommerce-checkout .site-header .section.menu-mobile {
+    @include flex(column);
+    height: 0;
+    min-height: unset !important;
+    overflow: hidden;
+    padding: 0;
+    transition: height .8s ease;
+    background-color: rgba($color__blanco, 85%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    
+    ul#mobile-menu {
+        @include column-mb();
+        list-style: none;
+        // padding: 0;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+
+        .menu-item {
+            position: relative;
+        
+            a {
+                font-size: 2rem;
+                line-height: 2.5;
+                color: $color__texto;
+                display: block;
+            }
+            
+            &.current-menu-item {
+                position: relative;
+                text-indent: 1.5rem;
+                & > a::before {
+                    content: "";
+                    width: .6rem;
+                    height: .6rem;
+                    display: block;
+                    position: absolute;
+                    background: orange;
+                    border-radius: 1rem;
+                    top: 50%;
+                    translate: 0 -35%;
+                }
+            }
+        }
+
+    }
+    
+    &.active {
+        height: calc(100lvh - 80px);
+        transition: height 1s ease;
+        
+        ul#mobile-menu {
+            opacity: 1;
+            transition: opacity 1.3s ease;
+        }
+    }
+}

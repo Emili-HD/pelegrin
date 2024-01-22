@@ -1,0 +1,30 @@
+@import 'grid-flex';
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	// width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+	// width: math.div($columns--margin * ($numberColumns - 1), $numberColumns); 
+	width: map-get($columns, $numberColumns) - calc(($columns--margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+@mixin adjust($width: .375rem, $height: .375rem) {
+	max-width: calc(100% - $width);
+	max-height: calc(100% - $height);
+	margin-left: calc($width / 2);
+	margin-right: calc($width / 2);
+	margin-top: calc($height / 2);
+	margin-bottom: calc($height / 2);
+}
+
+@mixin column-mb($width: 100vw, $padd: 10vw) {
+	width: $width;
+	padding-left: $padd;
+	padding-right: $padd;
+}

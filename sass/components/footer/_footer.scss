@@ -1,0 +1,186 @@
+.site-footer {
+    @include flex(column, flex-start, flex-start);
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.0666666667);
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0vw;
+        user-select: none;
+        z-index: -1;
+    }
+
+    /* &::before {
+        width: 1px;
+        height: 100%;
+        box-shadow: $grid-column 0 0 0px $color__line,
+            calc($grid-column * 2) 0 0 0px $color__line,
+            calc($grid-column * 3) 0 0 0px $color__line,
+            calc($grid-column *4) 0 0 0px $color__line;
+
+        @media (max-width: 1023.98px) {
+            box-shadow: $grid-column-padding 0 0 0px $color__line,
+                calc($grid-column-mobile + $grid-column-padding) 0 0 0px $color__line;
+        }
+    }
+
+    &::after {
+        width: 100%;
+        height: 1px;
+        background-color: $color__line;
+        //box-shadow: box-shadow-row(100);
+
+        @media (max-width: 767.98px) {
+            box-shadow: none;
+        }
+    } */
+
+    @media (max-width: 767px) {
+        display: flex;
+    }
+
+    .footer-contenedor-info {
+        width: 100%;
+
+        @media (max-width: 1023.98px) {
+            @include flex(column, flex-start, flex-start);
+            padding: $grid-column-padding;
+        }
+
+        .footer-contenedor-info_iz {
+            @include flex(row, flex-start, flex-start);
+            border-bottom: .0625rem solid $color__line;
+            height: 25vh;
+
+            @media (max-width: 1023.98px) {
+                @include flex(column, flex-start, flex-start);
+                margin-bottom: $grid-column-padding;
+                width: $grid-column-mobile;
+                height: fit-content;
+            }
+
+            .wp-block-heading {
+                font-size: 1.5rem;
+                font-weight: 900;
+            }
+
+            .newsletter_input {
+                @include flex(column, flex-start, flex-start);
+                gap: 1rem;
+                width: 100%;
+                position: relative;
+
+                input[type=text]{
+                    outline: 0.0625rem solid rgba(0, 0, 0, 0.0666666667);
+                    border: none;
+                }
+
+                input[type=submit]{
+                    background-color: $color__corporativo-2;
+                    color: white;
+                    align-self: end;
+                    padding: 0.8rem 3rem;
+                    font-size: .8rem;
+                    letter-spacing: 1px;
+                }
+            }
+
+            #footer-1 {
+                @include flex(column, center, flex-start);
+                width: 40vw;
+                padding: 1rem;
+                gap: 1rem;
+                @media (max-width: 1023.98px) {
+                    align-items: flex-start;
+                    width: 100%;
+                }
+            }
+
+            #footer-2 {
+                @include flex(column, center, flex-start);
+                width: 40vw;
+                text-align: center;
+                padding: 1rem;
+
+                @media (max-width: 1023.98px) {
+                    @include flex(column, flex-start, flex-start);
+                }
+
+                @media (min-width: 1024px) and (max-width: 1199.98px){
+                	flex: 0 0 auto;
+                    width: 40vw;
+                }
+
+                .social {
+                    @include flex(row, space-between, flex-start);
+                    gap: 0.7rem;
+                    list-style: none;
+                    margin: 0;
+                    padding: 1rem 0;
+
+                    img {
+                        height: 2.5rem;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .footer-contenedor-info_der {
+            @include flex(row, flex-start, flex-start);
+            height: 25vh;
+
+            @media (max-width: 1023.98px) {
+                @include flex(column, flex-start, flex-start);
+                margin-bottom: $grid-column-padding;
+                height: fit-content;
+            }
+
+            @media (min-width: 1024px) and (max-width: 1199.98px){
+                padding-left: 40vw;
+            }
+
+            #footer-3{
+                width: 20vw;
+                padding: 1rem;
+            }
+            #footer-4{
+                width: 20vw;
+                padding: 1rem;
+            }
+            #footer-5{
+                width: 20vw;
+                padding: 1rem;
+            }
+            #footer-6{
+                @include flex(row, space-around, flex-start);
+                width: 39.5vw;
+                padding: 1rem;
+
+                section{
+                    width: 35%;
+                }
+            }
+
+            .widget-area {
+                @include flex(column, flex-start, flex-start);
+
+                @media (max-width: 1023.98px) {
+                    @include flex(column, flex-start, flex-start);
+                    margin-bottom: $grid-column-padding;
+                    width: 100% !important;
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+        }
+    }
+
+}

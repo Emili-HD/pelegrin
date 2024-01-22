@@ -1,0 +1,307 @@
+/* adds style to divs */
+/* by default all divs are hidden */
+div.custom_option {
+    display: none;
+    background-color: $color__gris;
+    margin-right: 5px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+/* show only divs with class "is-visible" */
+div.custom_option.is-visible {
+    display:inline-block;
+}
+
+/* adds the style to the selected div */
+div.custom_option.on {
+    background-color: #777;
+    color: white;
+}
+
+/* **************************** */
+/* WOOCOMMERCE VARIATIONS TABLE */
+/* **************************** */
+.variations__table-title {
+    margin: 1.5rem 0;
+}
+
+table.variations__table,
+table.variations__table tbody {
+    @include flex(row, center, flex-start, nowrap);
+    gap: 0.25rem;
+    margin: 0;
+    width: 100%; 
+
+    @media (max-width: 1023.98px){
+    	@include column-mb(100%, 0);
+    }
+
+    thead tr th {
+        min-width: max(150px, 10vw);
+        input.custom__quantity {
+            width: 50px;
+            padding: 0;
+            border-top: 0;
+            background: transparent;
+        }
+
+        &:last-child {
+            background-color: darken($color__gris, 3%);
+        }
+    }
+
+    tr {
+        @include flex(column, flex-start, space-between, nowrap);
+        width: 100%;
+
+        &:first-child {
+            & > th:not(:empty) {
+                @include flex(row);
+                &::after {
+                    content: "un.";
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    margin-left: 0.2rem;
+                }
+            }
+        }
+
+        &:empty {
+            display: none;
+        }
+
+        /* @media (max-width: 767.98px){
+        	width: 25%;
+        } */
+
+        td, th {
+            @include flex(row, center, center, nowrap);
+            background-color: $color__gris;
+            height: 2rem;
+            margin-bottom: .25rem;
+            padding: 0 1rem;
+            text-align: center;
+
+            @media (max-width: 767.98px){
+            	padding: 0;
+                text-align: center;
+                font-size: .75rem;
+                line-height: 1.1;
+            }
+            
+        }
+        
+        td {
+            transition: background-color 0.3s ease;
+
+            &:last-child {
+                background-color: darken($color__gris, 3%);
+            }
+
+            &:not(:empty) {
+                cursor: pointer;
+                
+                &.selected, 
+                &:hover {
+                    background-color: darken($color__gris, 70%);
+                    color: $color__blanco;
+                }
+                
+                &::after {
+                    content: "€";
+                    font-size: 0.8rem;
+                    margin-left: 0.2rem;
+                }
+
+            }
+
+            &:empty::after {
+                content: "–";
+            }
+            
+            &.table__subtitle {
+                width: 0;
+                padding: 0 !important;
+                &::after {
+                    content: none;
+                }
+            }
+        }       
+        
+    }
+    
+}
+
+
+
+/* **************************** */
+/*    WOOCOMMERCE CART TABLE    */
+/* **************************** */
+
+.price__table {
+    h2 {
+        padding: 1rem 1rem 0.25rem;
+
+        @media (max-width: 767.98px){
+        	padding: 0;
+            margin-bottom: 5vh;
+        }
+    }
+
+    @media (max-width: 767.98px){
+    	width: 100%;
+    }
+}
+
+.woocommerce-cart-form__contents {
+
+    @media (max-width: 767.98px){
+    	thead {
+            display: none;
+        }
+    }
+
+    tr {
+        display: flex;
+        border-top: 1px solid $color__line;
+        // border-bottom: 1px solid $color__line;
+        padding: 0;
+        position: relative;
+        
+        @media (max-width: 767.98px){
+            flex-direction: column;
+
+            &.cart_item {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    td {
+        @include flex(column, center, center, wrap);
+        border: 0;
+        padding: 0;
+        position: relative;
+
+        @media (max-width: 767.98px){
+        	width: 100% !important;
+        }
+
+    }
+    
+    .product-remove {
+        position: absolute;
+        z-index: 1;
+        top: 1rem;
+        left: 1rem;
+        z-index: 10;
+
+        a {
+            @include flex(column);
+            width: 1.5rem;
+            height: 1.5rem;
+            background: red;
+            border-radius: 1rem;
+            color: $color__blanco;
+        }
+    }
+    
+    
+    .product-thumbnail {
+        @include columns();
+
+        a {
+            padding: $paddings;
+
+            @media (max-width: 767.98px){
+            	padding: 0;
+            }
+        }
+
+        img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    }
+    
+    .product-name {
+        @include columns();
+        @include flex(row, flex-start, center, wrap);
+
+        a {
+            width: 100%;
+
+            @media (max-width: 767.98px){
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+        }
+
+        .variation {
+            @include flex(row, flex-start, center, wrap);
+            width: 100%;
+
+            strong {
+                display: none;
+            }
+
+            dt, dd {
+                margin: 0;
+                width: 50%;
+                font-weight: 400;
+                color: $color__texto;
+                font-size: .9rem;
+            }
+        }
+    }
+
+    .product-quantity {
+        display: none !important;
+    }
+    .product-price,
+    .product-subtotal {
+        @include columns(0.5);
+        @include flex(row, flex-start);
+    }
+
+    .product-price {
+        border-right: .0625rem solid $color__line;
+    }
+
+    @media (max-width: 767.98px){
+    	td.product-price::before {
+            content: "Precio:";
+            margin-right: .5rem;
+        }
+    	td.product-subtotal::before {
+            content: "Subtotal:";
+            margin-right: .5rem;
+        }
+    }
+}
+
+
+.cart-collaterals {
+    @include columns(2);
+    margin-left: $grid-column;
+
+    tr {
+        text-align: left;
+        padding: 1rem 0;
+        display: block;
+        border-top: 1px solid $color__line;
+
+        &.order-total {
+            border-bottom: 1px solid $color__line;
+        }
+
+        th, td {
+            width: $grid-column;
+        }
+    }
+
+    @media (max-width: 767.98px){
+    	width: 100%;
+        margin-left: 0;
+    }
+}

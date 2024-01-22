@@ -1,0 +1,25 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	margin: 0;
+	padding: 0;
+    line-height: 1.2;
+}
+
+.hero h2 {
+    color: $color__blanco;
+    font-size: 8vw;
+    font-weight: 800;
+    left: $paddings;
+    line-height: 0.8;
+    margin: auto;
+    position: absolute;
+    right: $paddings;
+    top: 50%;
+    translate: 0 -50%;
+    width: fit-content;
+}

@@ -1,0 +1,169 @@
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    border: 1px solid currentColor;
+    border-radius: 1rem;
+    color: $color__texto;
+    line-height: 1;
+    padding: 0.2em 0.7em;
+
+    &:hover {
+        border-color: $color__border-button-hover;
+    }
+
+    &:active,
+    &:focus {
+        border-color: $color__border-button-focus;
+    }
+}
+
+.menu-toggle {
+    cursor: pointer;
+	margin-left: 1.75rem !important;
+
+    span.linea {
+        width: 24px;
+        height: 1px;
+        background: $color__texto;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+		
+        &.linea1 {
+			translate: 0 -5px;
+			rotate: 0;
+			transition: rotate 0.3s ease, translate 0.3s ease;
+        }
+		
+        &.linea2 {
+			translate: 0 5px;
+			rotate: 0;
+			transition: rotate 0.3s ease, translate 0.3s ease;
+        }
+		
+    }
+	
+	&.active {
+		span.linea.linea1 {
+			translate: 0;
+			rotate: 45deg;
+			transform-origin: center;
+		}
+		
+		span.linea.linea2 {
+			translate: 0;
+			rotate: -45deg;
+			transform-origin: center;
+		}
+	}
+}
+
+// ARROW BUTTONS
+
+.arrow-button {
+    align-items: center;
+    border-radius: 1rem;
+    color: $color__texto;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 10px 16px;
+    transition: all .3s ease;
+
+    .arrow-text {
+        line-height: 1;
+        position: relative;
+        top: -1.3px;
+        transition: all .3s ease;
+    }
+
+    >.arrow {
+        height: 6px;
+        margin: 0 6px;
+        position: relative;
+
+        transform: rotate(45deg);
+        transition: all .3s ease;
+        width: 6px;
+
+        &::before {
+            background-color: $color__texto;
+            bottom: calc(-1px / 2);
+            content: "";
+            display: block;
+            height: 1px;
+            opacity: 0;
+            position: absolute;
+            transform-origin: bottom right;
+            transition: all .3s ease;
+            width: 3px;
+
+        }
+
+        &-left {
+            border-bottom: 1px solid $color__texto;
+            border-left: 1px solid $color__texto;
+            transform: rotate(45deg);
+
+            &::before {
+                right: 6px;
+                transform: rotate(135deg);
+            }
+        }
+
+        &-right {
+            border-bottom: 1px solid $color__texto;
+            border-right: 1px solid $color__texto;
+            transform: rotate(-45deg);
+
+            &::before {
+                right: 0;
+                transform: rotate(45deg);
+            }
+        }
+
+
+    }
+
+    &:hover {
+        >.arrow-text {
+            transform: translateX(-12px);
+        }
+
+        >.arrow {
+            &-left {
+                transform: rotate(45deg) translate(-10px, 10px);
+            }
+
+            &-right {
+                transform: rotate(-45deg) translate(10px, 10px);
+            }
+
+            &::before {
+                opacity: 1;
+                width: 35px;
+            }
+        }
+    }
+
+    &.invert:hover>.arrow-text,
+    &.invert:hover>.arrow {
+        filter: invert(1);
+    }
+}
+
+
+.btn-orange {
+    background: $color__corporativo-2;
+    border: 1px solid $color__corporativo-2;
+
+    a {
+        color: $color__blanco;
+    }
+}

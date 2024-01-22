@@ -1,0 +1,101 @@
+#nosotros {
+    @include columns(5);
+    display: block;
+    flex-direction: column;
+    padding: $grid-row 0 0;
+    z-index: -6;
+
+    @media (max-width: 767.98px){
+    	padding: 5vh 0 0;
+    }
+
+    .about-title {
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $color__line;
+
+        h1 {
+            @include columns(2);
+            padding: calc($paddings / 2);
+
+            @media (max-width: 767.98px){
+            	@include column-mb();
+            }
+        }
+    }
+
+    .section-nosotros {
+        display: flex;
+        align-items: center;
+        margin-top: -1px;
+        margin-bottom: $grid-row;
+        border-bottom: 1px solid $color__line;
+        border-top: 1px solid $color__line;
+
+        @media (max-width: 767.98px){
+        	@include column-mb();
+            margin-bottom: 0;
+        }
+
+        &:nth-child(odd) {
+            flex-direction: row;
+
+            @media (max-width: 767.98px){
+            	flex-direction: column;
+            }
+        }
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            @media (max-width: 767.98px){
+            	flex-direction: column;;
+            }
+        }
+        
+        .about-image {
+            @include columns(2);
+            @include rows(2);
+            overflow: hidden;
+            position: relative;
+
+            @media (max-width: 767.98px){
+            	width: 100%;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                position: absolute;
+            }
+        }
+        
+        .about-text {
+            @include columns(2);
+            padding: $paddings;
+
+            @media (max-width: 767.98px){
+            	width: 100%;
+                padding: 10vw 0;
+            }
+        }
+
+        &:not(:has(.about-image)) {
+            @include columns(5);
+            padding: 0 $grid-column;
+
+            .about-text {
+                @include columns(3);
+            }
+
+            @media (max-width: 767.98px){
+            	// padding: 10vw 0;
+
+                .about-text {
+                    @include column-mb();
+                }
+            }
+        }
+    }
+}

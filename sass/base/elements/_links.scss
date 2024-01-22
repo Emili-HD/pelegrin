@@ -1,0 +1,75 @@
+a {
+	color: $color__link;
+	transition: color .4s ease;
+
+	&:visited {
+		color: $color__link-visited;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__corporativo-2;
+	}
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+.tienda-link a,
+.shop a {
+    padding-right: 1.5rem;
+
+	&::before, &::after {
+		content: "";
+		height: 1px;
+		background: #2c2c2c;
+		position: absolute;
+		top: 3px;
+		bottom: 0;
+		margin: auto;
+		transition: all .8s ease;
+	}
+	
+	&::before {
+		rotate: 45deg;
+		right: 0.275rem;
+		width: 12px;
+	}
+	
+	&::after {
+		rotate: -45deg;
+		right: -0.275rem;
+		width: 12px;
+	}
+	
+	&.active {
+		&::before {
+			rotate: -45deg;
+			right: 0rem;
+			width: 15px;
+		}
+		
+		&::after {
+			rotate: 45deg;
+			right: 0rem;
+			width: 15px;
+		}
+
+	}
+
+	.site-footer &::after,
+	.site-footer &::before {
+		content: none;
+	}
+}
+
+#categorias-menu a {
+    font-size: 1.5rem;
+}

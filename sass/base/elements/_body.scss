@@ -1,0 +1,9 @@
+
+
+body {
+	background: $color__blanco; // Fallback for when there is no custom background color defined.
+	
+	&.mobile-menu-active {
+		overflow: hidden;
+	}
+}

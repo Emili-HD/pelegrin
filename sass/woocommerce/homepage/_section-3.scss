@@ -1,0 +1,80 @@
+#section-3 {
+    overflow: hidden;
+
+    @media (max-width: 1023.98px) {
+        @include flex(column, flex-start, flex-start);
+        padding: calc($grid-column-padding + 1px);
+        width: 100vw;
+    }
+
+    .section-descripcion {
+        background: $color__gris;
+        color: $color__texto;
+        grid-column: 5/6;
+        padding: 0;
+
+        @media (max-width: 767px) {
+            @include rows(2);
+            margin-bottom: $grid-column-padding;
+        }
+
+        @media (min-width: 768px) and (max-width: 1199.98px) {
+            grid-column: 4/6;
+        }
+
+        .title {
+            @include flex(column, flex-end, flex-start);
+            height: 50%;
+            padding: 1rem $paddings;
+            width: 100%;
+        }
+
+        .text {
+            @include flex(column, flex-start, flex-start);
+            height: 50%;
+            padding: 1rem $paddings;
+            width: 100%;
+        }
+    }
+
+    .section-grid {
+        background-color: $color__gris;
+        grid-column: 1/4;
+        grid-row: 2/4;
+
+        @media (max-width: 767px) {
+            @include flex(column, flex-start, center);
+        }
+
+
+        .google {
+            grid-row: 1/3;
+
+            @media (max-width: 1023.98px) {
+                display: flex;
+                flex-direction: row;
+                grid-column: 1/5;
+                grid-row: 1/2;
+                justify-content: center;
+            }
+        }
+
+        .resenas {
+            @include flex(column);
+            background: $color__corporativo-1;
+            grid-column: 2/4;
+            grid-row: 1/3;
+            padding: 10%;
+            
+            @media (min-width: 768px) and (max-width: 1199.98px) {
+                grid-column: 1/5;
+                grid-row: 2/4;
+                padding: 0;
+            }
+
+            .resenas-item {
+                color: $color__blanco;
+            }
+        }
+    }
+}

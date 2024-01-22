@@ -1,0 +1,129 @@
+.woocommerce-checkout {
+    .section:not(.footer-contenedor-info) {
+        @include flex(column, flex-start, flex-start);
+        @include columns(5);
+        padding: calc($grid-row / 2) 0;
+
+        @media (max-width: 767.98px){
+        	@include column-mb();
+            padding-top: 10vw;
+            padding-bottom: 10vw;
+        }
+
+        .entry-header,
+        .entry-content {
+            width: 100%;
+            // border-bottom: 1px solid $color__line;
+        }
+
+        form.checkout.woocommerce-checkout {
+            @include flex(column, flex-start, stretch);
+            @include columns(3);
+            margin: 0 $grid-column;
+            gap: 2rem;
+        }
+
+        #customer_details {
+            padding: 0;
+
+            .woocommerce-billing-fields h3 {
+                padding: calc($paddings / 2);
+                border-bottom: 1px solid $color__line;
+            }
+            
+            .woocommerce-billing-fields__field-wrapper {
+                padding: 0;
+                border-bottom: 1px solid $color__line;
+
+                @include flex(row, flex-start, stretch, wrap);
+                .form-row {
+                    @include columns();
+                    @include flex(column, flex-end, stretch);
+                    padding: calc($paddings / 2);
+                    margin: 0 !important;
+                    gap: 1rem;
+                }
+            }
+            
+            .woocommerce-additional-fields {
+                padding: calc($paddings / 2);
+                border-bottom: 1px solid $color__line;
+            }
+        }
+
+        #order_review_heading {
+            padding: calc($paddings / 2);
+            background-color: $color__gris;
+        }
+
+        .shop_table {
+            padding: calc($paddings / 2);
+            background-color: $color__gris;
+            margin: 0;
+
+            tr.cart-subtotal,
+            tr.woocommerce-shipping-totals,
+            tr.tax-rate,
+            tr.order-total {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                th, td {
+                    width: 50%;
+                    text-align: left;
+                }
+            }
+        }
+
+        #payment {
+            padding: calc($paddings / 2);
+            background-color: lighten($color__corporativo-2, 30%);
+        }
+
+    }
+
+    .select2-container--default .select2-selection--single {
+        background-color: $color__gris;
+        border: 0;
+        border-top: 1px solid $color__line;
+        border-radius: 0;
+        height: auto;
+        margin: 0;
+        padding: 0.5rem;
+        width: 100%;
+        
+        .select2-selection__arrow {
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+
+
+    .woocommerce-form-coupon {
+        gap: 2rem;
+        display: flex !important;
+        @include flex(row, center, center);
+        padding: calc($paddings / 2);
+        background-color: $color__corporativo-1;
+        color: $color__blanco;
+        text-align: center;
+
+        a {
+            color: white;
+        }
+    }
+    
+    .variation {
+        @include flex(row, flex-start, center, wrap);
+    
+        dt, dd {
+            margin: 0;
+            width: 50%;
+            font-weight: 400;
+            color: $color__texto;
+            font-size: .9rem;
+        }
+    }
+}
